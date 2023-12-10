@@ -28,7 +28,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '3.1' 
+          dotnet-version: '6.0.100' 
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -41,10 +41,10 @@ jobs:
           echo test, and deploy your project.
 
       - name: Install Dependencies
-        run: npm install
+        run: dotnet restore
 
       - name: Build Project
-        run: npm run
+        run: dotnet build --configuration Release
 
       - name: Run Unit Tests
-        run: npm test
+        run: dotnet test
